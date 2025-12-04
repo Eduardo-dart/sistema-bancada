@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancada</title>
+    <link rel="stylesheet" href="bancada.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <h2>Dashboard da Bancada de Produção</h2>
+
+        <nav class="menu">
+            <a href="#">Pedidos</a>
+            <a href="#">Usuários</a>
+        </nav>
+
+        <button onclick="login(event)" class="logout-btn">Sair</button>
+    </header>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Módulo Estoque</h3>
+            <img src="bancada_estoque (1).png" class="logo-top">
+            <p><strong>Temperatura:</strong> 22.5°C</p>
+            <p><strong>Umidade:</strong> 35%</p>
+            <h4>Estoque de Bases</h4>
+            <div class="small-box">[ Espaços de Estoque ]</div>
+        </div>
+
+        <div class="card">
+            <h3>Módulo Processo</h3>
+            <img src = "bancada_processo.png" class = "logo-top">
+            <p><strong>Temperatura:</strong> 25.1°C</p>
+            <p><strong>Umidade:</strong> 55%</p>
+            <p>Estoque gerenciado centralmente</p>
+        </div>
+
+        <div class="card">
+            <h3>Módulo Montagem</h3>
+            <img src = "bancada_montagem.png" class = "logo-top">
+            <p><strong>Temperatura:</strong> 23.0°C</p>
+            <p><strong>Umidade:</strong> 60%</p>
+            <p>Status do teste: PASS</p>
+        </div>
+
+        <div class="card">
+            <h3>Módulo Expedição</h3>
+            <img src = "bancada_expedicao.png" class = "logo-top">
+            <p><strong>Temperatura:</strong> 21.9°C</p>
+            <p><strong>Umidade:</strong> 43%</p>
+            <h4>Estoque de Produtos Acabados</h4>
+            <div class="small-box">[ Lista de pedidos ]</div>
+        </div>
+ 
+    </div>
+
+    <script src="bancada.js"></script>
+</body>
+</html>

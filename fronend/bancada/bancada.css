@@ -1,0 +1,91 @@
+/* ------------------- GERAL ------------------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #274988c4;
+}
+
+/* ------------------- TOPBAR ------------------- */
+.topbar {
+    background: #00255c;
+    color: rgb(243, 188, 188);
+    padding: 15px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Título */
+.topbar h2 {
+    margin: 0;
+}
+
+/* Menu */
+.menu a {
+    color: rgb(243, 188, 188);
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de sair */
+.logout-btn {
+    background: #ff4747;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background: #d63c3c;
+}
+
+/* ------------------- DASHBOARD ------------------- */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px;
+}
+
+/* ------------------- CARDS ------------------- */
+.card {
+    background: rgba(95, 92, 255, 0.753);
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Caixas */
+.image-box {
+    background: #d0d7e2;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.small-box {
+    background: #d4d4d4;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 5px;
+}

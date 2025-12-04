@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #1d171a;
+    background: rgba(255, 68, 68, 0.774);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,11 +9,12 @@ body {
 }
 
 .login-container {
-    background: rgb(180, 159, 159);
+    background: rgba(255, 68, 68, 0.774);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     width: 300px;
     text-align: center;
+    box-shadow: 5px;
 }
 
 .login-container h2 {
