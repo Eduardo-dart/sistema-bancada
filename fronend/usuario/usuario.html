@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciar Usuários</title>
+    <link rel="stylesheet" href="usuario.css"> <!-- opcional -->
+</head>
+<body>
+
+    <header class="topo">
+        <h1>Gerenciamento de Usuários</h1>
+        <button onclick="bancada(event)" class="voltar">Voltar</button>
+    </header>
+
+    <main class="container">
+
+        <div class="card">
+            <h2>Cadastrar novo usuário</h2>
+
+            <form id="formUsuario" onsubmit="cadastrarUsuario(event)">
+                <label>Nome</label>
+                <input type="text" id="nome" required>
+
+                <label>Sobrenome</label>
+                <input type="text" id="sobrenome" required>
+
+                <label>Data de nascimento</label>
+                <input type="date" id="nascimento" required>
+
+                <label>Email</label>
+                <input type="email" id="email" required>
+
+                <label>Senha</label>
+                <input type="password" id="senha" required>
+
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+
+            <p class="mensagem" id="msg"></p>
+        </div>
+
+    </main>
+
+    <!-- LISTA / TABELA DE USUÁRIOS -->
+    <section class="lista-container">
+        <h2>Usuários cadastrados</h2>
+        <table id="tabelaUsuarios">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Nascimento</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- linhas serão inseridas por JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="usuario.js"></script>
+</body>
+</html>
