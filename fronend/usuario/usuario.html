@@ -33,6 +33,12 @@
 
                 <label>Senha</label>
                 <input type="password" id="senha" required>
+                <label>Tipo de usuário</label>
+                <select id="tipo" required>
+                    <option value="aluno">Aluno</option>
+                    <option value="professor">Professor</option>
+                </select>
+
 
                 <button type="submit" class="btn">Cadastrar</button>
             </form>
@@ -46,19 +52,23 @@
     <section class="lista-container">
         <h2>Usuários cadastrados</h2>
         <table id="tabelaUsuarios">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Nascimento</th>
-                    <th>Email</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- linhas serão inseridas por JS -->
-            </tbody>
-        </table>
+            <th>Tipo</th>
+
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Nascimento</th>
+            <th>Email</th>
+            <td>Tipo de usuário</td>
+            <th>Ações</th>
+            <button class="btn-editar">Editar</button>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- preenchido pelo JS -->
+        </tbody>
+    </table>
     </section>
 
     <script src="usuario.js"></script>

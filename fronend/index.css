@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: rgba(255, 68, 68, 0.774);
+    background: rgba(40, 73, 143, 0.774);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body {
 }
 
 .login-container {
-    background: rgba(255, 68, 68, 0.774);
+    background: rgba(95, 92, 255, 0.753);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     width: 300px;
