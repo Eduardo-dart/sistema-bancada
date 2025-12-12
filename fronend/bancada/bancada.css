@@ -89,3 +89,147 @@ body {
     border-radius: 6px;
     margin-top: 5px;
 }
+/* ------------------- ESTOQUE DE BASES ------------------- */
+
+/* Contêiner com grade 7x4 (28 posições) */
+.estoque-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Cada base */
+.base-item {
+    width: 23px;
+    height: 23px;
+    border-radius: 80%;
+    border: 1px solid black;
+}
+
+/* Cores das bases */
+.base-azul {
+    background-color: #1e66ff;
+}
+
+.base-preto {
+    background-color: #000;
+}
+
+.base-vermelho {
+    background-color: red;
+}
+
+/* Base vazia (borda preta e fundo transparente) */
+.base-vazia {
+    background-color: transparent;
+}
+/* Caixa do estoque */
+.estoque-box {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 15px;
+    width: fit-content;
+}
+
+/* Grade das bolinhas */
+.estoque-container {
+    display: grid;
+    grid-template-columns: repeat(7, 30px); /* 22px + bordas */
+    grid-auto-rows: 24px;
+    gap: 6px; /* Espaço menor */
+}
+/* Caixa cinza clara igual ao exemplo da foto */
+.estoque-retangulo {
+    background: #848a96;
+    padding: 15px;
+    border-radius: 12px;
+    width: 95%;
+    margin: auto;
+}
+
+/* Grade de 7 colunas × 4 linhas (28 bases) */
+.estoque-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    justify-items: center;
+}
+
+/* Bolinhas menores (agora realmente menores) */
+.base-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+/* Caixa que contém as informações em duas colunas */
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Duas colunas */
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Coluna da esquerda */
+.info-left {
+    padding-right: 10px;
+}
+
+/* Coluna da direita */
+.info-right {
+    padding-left: 10px;
+}
+
+/* Retângulo do estoque */
+.estoque-retangulo {
+    background: #878c97;
+    padding: 18px;
+    border-radius: 15px;
+    width: 80%; /* Aumenta o tamanho do retângulo para caber bem */
+    margin-top: 15px;
+    margin-bottom: 20px; /* Para distanciar do conteúdo */
+}
+
+/* Grade das bolinhas */
+.estoque-container {
+    display: grid;
+    grid-template-columns: repeat(7, 20px);
+    gap: 6px;
+    justify-items: center;
+}
+
+/* Bolinhas pequenas */
+.base-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+/* ===== FORÇAR OS CARDS A FICAREM LADO A LADO ===== */
+
+.dashboard {
+    display: flex !important;
+    flex-wrap: wrap !important;        /* permite quebrar linha */
+    flex-direction: row !important;    /* garante que seja lateral */
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+}
+
+/* cada card deve ter largura fixa */
+.card {
+    width: 280px !important;           /* ajuste se quiser maior */
+    box-sizing: border-box !important;
+}
+
+/* media queries que POR ACASO deixem vertical serão sobrescritas */
+@media (max-width: 600px) {
+    .dashboard {
+        justify-content: center !important;
+    }
+}
+
+
+
