@@ -13,8 +13,26 @@
 
     <h2>Login</h2>
 
-    <input type="text" id="usuario" placeholder="Usuário">
-    <input type="password" id="senha" placeholder="Senha">
+    <form onsubmit="login(event)">
+
+    <input type="text" id="nome" placeholder="Nome" required>
+
+    <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+
+    <input type="date" id="nascimento" required>
+
+    <input type="email" id="email" placeholder="Email" required>
+
+    <input type="password" id="senha" placeholder="Senha" required>
+
+    <select id="tipo" required>
+        <option value="">tipo de usuário</option>
+        <option value="aluno">Aluno</option>
+        <option value="professor">Professor</option>
+    </select>
+
+    <p id="mensagem"></p>
+</form>
 
     <button onclick="login(event)">Entrar</button>
 

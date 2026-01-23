@@ -1,6 +1,6 @@
-// lista em memória
-let usuarios = [];
-let indiceEdicao = -1; // -1 = não está editando
+
+
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 function cadastrarUsuario(event) {
     event.preventDefault();
@@ -13,28 +13,21 @@ function cadastrarUsuario(event) {
     const tipo = document.getElementById("tipo").value;
     const msg = document.getElementById("msg");
 
-    if (!nome || !sobrenome || !email || !senha || !tipo) {
-        msg.style.color = "salmon";
-        msg.textContent = "Preencha todos os campos.";
+    const existe = usuarios.some(u => u.email === email);
+    if (existe) {
+        msg.style.color = "red";
+        msg.textContent = "Usuário já existe.";
         return;
     }
 
-    const novoUsuario = { nome, sobrenome, nascimento, email, senha, tipo };
+    usuarios.push({ nome, sobrenome, nascimento, email, tipo });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    // Se estiver editando
-    if (indiceEdicao >= 0) {
-        usuarios[indiceEdicao] = novoUsuario;
-        msg.style.color = "lightgreen";
-        msg.textContent = `Usuário atualizado com sucesso!`;
-        indiceEdicao = -1;
-    } else {
-        usuarios.push(novoUsuario);
-        msg.style.color = "lightgreen";
-        msg.textContent = `Usuário ${nome} ${sobrenome} cadastrado com sucesso!`;
-    }
+    msg.style.color = "green";
+    msg.textContent = "Usuário cadastrado com sucesso!";
 
+    event.target.reset();
     atualizarTabela();
-    document.getElementById("formUsuario").reset();
 }
 
 function atualizarTabela() {
@@ -42,49 +35,31 @@ function atualizarTabela() {
     tbody.innerHTML = "";
 
     usuarios.forEach((u, index) => {
-        const linha = document.createElement("tr");
+        const tr = document.createElement("tr");
 
-        linha.innerHTML = `
+        tr.innerHTML = `
             <td>${u.nome}</td>
             <td>${u.sobrenome}</td>
             <td>${u.nascimento}</td>
             <td>${u.email}</td>
             <td>${u.tipo}</td>
             <td>
-                <button class="btn-editar" onclick="editarUsuario(${index})">Editar</button>
-                <button class="btn-excluir" onclick="excluirUsuario(${index})">Excluir</button>
+                <button onclick="excluirUsuario(${index})">Excluir</button>
             </td>
         `;
 
-        tbody.appendChild(linha);
+        tbody.appendChild(tr);
     });
 }
 
 function excluirUsuario(index) {
     usuarios.splice(index, 1);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
     atualizarTabela();
 }
 
-function editarUsuario(index) {
-    const u = usuarios[index];
-
-    // jogando valores no formulário
-    document.getElementById("nome").value = u.nome;
-    document.getElementById("sobrenome").value = u.sobrenome;
-    document.getElementById("nascimento").value = u.nascimento;
-    document.getElementById("email").value = u.email;
-    document.getElementById("senha").value = u.senha;
-    document.getElementById("tipo").value = u.tipo;
-
-    indiceEdicao = index;
-
-    const msg = document.getElementById("msg");
-    msg.style.color = "yellow";
-    msg.textContent = "Editando usuário... clique em Cadastrar para salvar alterações.";
-}
-
-// botão de voltar
-function bancada(e) {
-    if (e) e.preventDefault();
+function voltar() {
     window.location.href = "../bancada/bancada.html";
 }
+
+window.onload = atualizarTabela;

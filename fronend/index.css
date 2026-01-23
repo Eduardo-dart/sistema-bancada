@@ -15,6 +15,7 @@ body {
     width: 300px;
     text-align: center;
     box-shadow: 5px;
+    margin-top: 120px;
 }
 
 .login-container h2 {
