@@ -117,14 +117,14 @@ tbody tr:nth-child(odd) {
 
 .btn-excluir {
     background-color: #ff4444;
-    color: white;
+    color: rgb(255, 0, 0);
     border: none;
     padding: 6px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 .btn-editar{background-color: #007bff;    
-    color: white;
+    color: rgb(98, 250, 255);
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
