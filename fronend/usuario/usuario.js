@@ -11,32 +11,20 @@ function cadastrarUsuario(event) {
     const nascimento = document.getElementById("nascimento").value;
     const email = document.getElementById("email").value.trim();
     const senha = document.getElementById("senha").value;
-    const tipo = document.getElementById("tipo").value;
+    const tipo = document.getElementById("tipo").value.trim();
     const msg = document.getElementById("msg");
-
-
-    if (indiceEdicao === null) {
-        const existe = usuarios.some(u => u.email === email);
-        if (existe) {
-            msg.style.color = "red";
-            msg.textContent = "Usuário já existe.";
-            return;
+    fetch("http://localhost:1880/usuario/cadastro",{
+        method:"POST",
+        body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
+    }).then((resposta)=>{
+        console.log(resposta)
+        if(resposta.ok){
+            resposta.json()
         }
+    }).then(()=>{
+        alert("salvo")
+    })
 
-        usuarios.push({ nome, sobrenome, nascimento, email, tipo });
-
-        msg.style.color = "green";
-        msg.textContent = "Usuário cadastrado com sucesso!";
-    } else {
-        usuarios[indiceEdicao] = { nome, sobrenome, nascimento, email, tipo };
-        indiceEdicao = null;
-
-        msg.style.color = "green";
-        msg.textContent = "Usuário atualizado com sucesso!";
-        document.querySelector(".btn").textContent = "Cadastrar";
-    }
-
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
     atualizarTabela();
     event.target.reset();
 }
@@ -77,12 +65,31 @@ function editarUsuario(index) {
 
     indiceEdicao = index;
     document.querySelector(".btn").textContent = "Salvar Alterações";
+    fetch("http://localhost:1880/usuarios/editar",{
+        method:"POST",
+        body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
+    }).then((resposta)=>{
+        console.log(resposta)
+        if(resposta.ok){
+            resposta.json()
+        }
+    }).then(()=>{
+        alert("atualizado")
+    })
 }
 
-function excluirUsuario(index) {
-    usuarios.splice(index, 1);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    atualizarTabela();
+function excluirUsuario() {
+   fetch("http://localhost:1880/usuario/excluir",{
+        method:"DELETE",
+        body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
+    }).then((resposta)=>{
+        console.log(resposta)
+        if(resposta.ok){
+            resposta.json()
+        }
+    }).then(()=>{
+        alert("usuario excluído")
+    })
 }
 
 function voltar() {

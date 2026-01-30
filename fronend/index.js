@@ -22,6 +22,17 @@ function login(event) {
         email,
         tipo
     };
+    fetch("http://localhost:1880/usuarios",{
+        method:"POST",
+        body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
+    }).then((resposta)=>{
+        console.log(resposta)
+        if(resposta.ok){
+            resposta.json()
+        }
+    }).then(()=>{
+        alert("salvo")
+    })
 
     // salva usuário logado
     sessionStorage.setItem("usuario", JSON.stringify(novoUsuario));
@@ -30,11 +41,6 @@ function login(event) {
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     const existe = usuarios.some(u => u.email === email);
-
-    if (!existe) {
-        usuarios.push(novoUsuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    }
 
     msg.style.color = "green";
     msg.textContent = "Login realizado com sucesso!";
