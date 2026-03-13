@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div class="login-container">
-    <img src="logotipo.png" class="logo-top">
+    
 
-    <h2>Login</h2>
+    <h2>login</h2>
 
     <form onsubmit="login(event)">
 
@@ -19,26 +19,23 @@
 
     <input type="text" id="sobrenome" placeholder="Sobrenome" required>
 
-    <input type="date" id="nascimento" required>
-
     <input type="email" id="email" placeholder="Email" required>
 
     <input type="password" id="senha" placeholder="Senha" required>
 
-    <select id="tipo" required>
-        <option value="">tipo de usuário</option>
-        <option value="aluno">Aluno</option>
-        <option value="professor">Professor</option>
-    </select>
 
+    </select>
+    
     <p id="mensagem"></p>
 </form>
 
     <button onclick="login(event)">Entrar</button>
+    <button type="button" onclick="criaru()">Criar usuário</button>
+
 
     <p id="mensagem" class="erro"></p>
     </div>
 
-    <script src="index.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

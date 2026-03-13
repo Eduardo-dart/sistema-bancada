@@ -1,0 +1,76 @@
+/* ---------- FUNDO DA PÁGINA ---------- */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* ---------- CAIXA DE LOGIN (EFEITO VIDRO) ---------- */
+.login-container {
+    background: rgba(255, 255, 255, 0.12); /* transparência */
+    backdrop-filter: blur(12px); /* efeito vidro */
+    -webkit-backdrop-filter: blur(12px); /* compatibilidade */
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+    width: 320px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ---------- TÍTULO ---------- */
+.login-container h2 {
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* ---------- CAMPOS ---------- */
+input {
+    width: 90%;
+    padding: 11px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: rgba(255,255,255,0.9);
+}
+
+/* efeito ao clicar no input */
+input:focus {
+    box-shadow: 0 0 8px rgba(110,168,255,0.8);
+}
+
+/* ---------- BOTÃO ---------- */
+button {
+    width: 95%;
+    padding: 11px;
+    border: none;
+    background: linear-gradient(45deg, #2c2f33, #000000);
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+    margin-top: 10px;
+}
+
+/* animação do botão */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* ---------- TEXTO DE ERRO ---------- */
+.erro {
+    color: #ff6b6b;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* ---------- LOGO ---------- */

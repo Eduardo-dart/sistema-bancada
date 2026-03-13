@@ -22,7 +22,7 @@ function buscarDadosBancada(){
 function sair(e){
     e.preventDefault()
     console.log("redirecionando")
-    window.location.href = "../index.html"
+    window.location.href = "../usuario/login.html"
 }
 
 function usuarios(e){

@@ -1,13 +1,13 @@
-function login(event) {
+function criar(event) {
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value.trim();
-    const sobrenome = document.getElementById("sobrenome").value.trim();
-    const nascimento = document.getElementById("nascimento").value;
-    const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value;
-    const tipo = document.getElementById("tipo").value;
-    const msg = document.getElementById("mensagem");
+    let nome = document.getElementById("nome").value.trim();
+    let sobrenome = document.getElementById("sobrenome").value.trim();
+    let nascimento = document.getElementById("nascimento").value;
+    let email = document.getElementById("email").value.trim();
+    let senha = document.getElementById("senha").value;
+    let tipo = document.getElementById("tipo").value;
+    let msg = document.getElementById("mensagem");
 
     if (!nome || !sobrenome || !nascimento || !email || !senha || !tipo) {
         msg.style.color = "red";
@@ -22,7 +22,7 @@ function login(event) {
         email,
         tipo
     };
-    fetch("http://localhost:1880/usuarios",{
+    fetch("http://localhost:1880/cadastrar/usuario",{
         method:"POST",
         body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
     }).then((resposta)=>{
@@ -45,7 +45,8 @@ function login(event) {
     msg.style.color = "green";
     msg.textContent = "Login realizado com sucesso!";
 
-    setTimeout(() => {
-        window.location.href = "bancada/bancada.html";
-    }, 500);
+   
+}
+function criar() {
+    window.location.href = "../usuario/login.html";
 }

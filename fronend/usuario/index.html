@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="login-container">
+    
+
+    <h2>Cadastrar</h2>
+
+    <form onsubmit="criar(event)">
+
+    <input type="text" id="nome" placeholder="Nome" required>
+
+    <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+
+    <input type="date" id="nascimento" required>
+
+    <input type="email" id="email" placeholder="Email" required>
+
+    <input type="password" id="senha" placeholder="Senha" required>
+
+    <select id="tipo" required>
+        <option value="">tipo de usuário</option>
+        <option value="aluno">Aluno</option>
+        <option value="professor">Professor</option>
+    </select>
+    
+    <p id="mensagem"></p>
+</form>
+
+    <button onclick="criar(event)">Criar novo usuário</button>
+
+
+    <p id="mensagem" class="erro"></p>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
