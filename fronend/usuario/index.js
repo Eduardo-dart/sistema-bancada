@@ -1,13 +1,15 @@
+
+
 function criar(event) {
     event.preventDefault();
 
-    let nome = document.getElementById("nome").value.trim();
-    let sobrenome = document.getElementById("sobrenome").value.trim();
-    let nascimento = document.getElementById("nascimento").value;
-    let email = document.getElementById("email").value.trim();
-    let senha = document.getElementById("senha").value;
-    let tipo = document.getElementById("tipo").value;
-    let msg = document.getElementById("mensagem");
+    const nome = document.getElementById("nome").value.trim();
+    const sobrenome = document.getElementById("sobrenome").value.trim();
+    const nascimento = document.getElementById("nascimento").value;
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
+    const tipo = document.getElementById("tipo").value.trim();
+    const msg = document.getElementById("msg");
 
     if (!nome || !sobrenome || !nascimento || !email || !senha || !tipo) {
         msg.style.color = "red";
@@ -22,7 +24,7 @@ function criar(event) {
         email,
         tipo
     };
-    fetch("http://localhost:1880/cadastrar/usuario",{
+     fetch("http://localhost:1880/cadastros/editar",{
         method:"POST",
         body:JSON.stringify({nome, sobrenome, nascimento, email, senha, tipo})
     }).then((resposta)=>{
@@ -41,12 +43,15 @@ function criar(event) {
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
     const existe = usuarios.some(u => u.email === email);
-
-    msg.style.color = "green";
-    msg.textContent = "Login realizado com sucesso!";
-
-   
+    window.location.href = "login.html"
 }
-function criar() {
-    window.location.href = "../usuario/login.html";
+function carregarUsuarios() {
+
+    fetch("http://localhost:1880/usuario/listar")
+    .then(res => res.json())
+    .then(dados => {
+        usuarios = dados;
+        atualizarTabela();
+    });
 }
+
